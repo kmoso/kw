@@ -1,0 +1,23 @@
+{
+    "app": {
+        "sources": {
+            "metroscubicos" : {
+                "main_url": "https://listado.metroscubicos.com/santa-luc%C3%ADa-reacomodo#D[A:santa-luc%C3%ADa-reacomodo]",
+                "output_file_name": "test_m3.txt",
+                "debug": "N",
+                "ori_url": "https://listado.metroscubicos.com/insurgentes-mixcoac#D[A:insurgentes-mixcoac]",
+                "old_url": "https://inmuebles.metroscubicos.com/casas/venta/distrito-federal/coyoacan/del-carmen/#origin=search&as_word=true",
+                "delimiter": "\t"
+            },
+            "inmuebles24": {
+                "main_url": "https://www.inmuebles24.com/inmuebles-en-jardin-balbuena.html",
+                "root_url": "https://www.inmuebles24.com",
+                "output_file_name": "test_24.txt",
+                "ori_url": "https://www.inmuebles24.com/departamentos-en-venta-en-del-carmen.html",
+                "old_url": "https://www.inmuebles24.com/q-santa-fe.html",
+                "debug": "N",
+                "delimiter": "\t"
+            }
+        }
+    }
+ }

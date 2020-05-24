@@ -1,0 +1,146 @@
+# To create ssh key in VDI with passphrase NewFoxBitBucket2020
+# ssh-keygen -t rsa -C "carlosmorl@TCFILMV10437"
+ssh-keygen
+
+# Verify key
+cat ~/.ssh/id_rsa.pub
+
+###
+###Generating public/private rsa key pair.
+###Enter file in which to save the key (C:\Users\carlosmorl/.ssh/id_rsa):
+###Created directory 'C:\Users\carlosmorl/.ssh'.
+###Enter passphrase (empty for no passphrase):
+###Enter same passphrase again:
+###Your identification has been saved in C:\Users\carlosmorl/.ssh/id_rsa.
+###Your public key has been saved in C:\Users\carlosmorl/.ssh/id_rsa.pub.
+###The key fingerprint is:
+###SHA256:RV97DpE8qtWBsXTF+Pf9unIslf6IVGstRsvoYbvztnE carlos.morlan@fox
+###The key's randomart image is:
+###+---[RSA 2048]----+
+###|          . o++=.|
+###|         . o.+*o.|
+###|          . ooo+.|
+###|         .  o .+o|
+###|        S  o  o.=|
+###|          .  =o+o|
+###|            =+O E|
+###|           ++*==.|
+###|            =O*=.|
+###+----[SHA256]-----+
+###
+###C:\Users\carlosmorl\Downloads>
+
+# Configure user and email
+git config --global user.name "Carlos Morlan"
+git config --global user.email "carlos.morlan@fox.com"
+
+# Confirm changes
+git config --global -l
+
+cd c/Bitbucket
+
+# Verify that the agent is up and running
+eval `ssh-agent -s`
+
+# Add the key to the SSH agent
+ssh-add ~/.ssh/id_rsa
+
+# Clone repository
+git clone ssh://git@foxrepo.praecipio.com:7999/fda/db_extract.git
+
+# Cloning into 'db_extract'...
+# remote: Enumerating objects: 1107, done.
+# remote: Counting objects: 100% (1107/1107), done.
+# remote: Compressing objects: 100% (894/894), done.
+# remote: Total 1107 (delta 513), reused 460 (delta 171)
+# Receiving objects: 100% (1107/1107), 457.29 KiB | 404.00 KiB/s, done.
+# Resolving deltas: 100% (513/513), done.
+
+# Check repository status
+cd /c/Bitbucket/db_extract
+git status
+
+# Check all existing branches
+git branch
+
+# Check all existing branches including remote ones
+git branch -a
+
+# Create new branch
+git branch CHG0122705b-Free_Form
+
+# Create new branch and switches to it
+git checkout -b CHG9999999-Inv_Adj_Recon
+
+# Switch to another branch
+git checkout master
+
+# Rename any branch
+git branch -m CHG9999999-Inv_Adj_Recon CHG9999999-Inv_Adj_And_Traffic_Recon
+
+# Rename current branch
+git branch -m CHG9999999-Inv_Adj_And_Traffic_Recon
+
+# Check difference between master branch and modified files
+git diff
+
+# Add file to staging
+git add ddl/broadway/free_form_reporting_objects.sql
+
+# To check what has been staged and will be part of the next commit
+git diff --staged
+
+# Commit changes
+git commit -m "Adding vw_ffr_calendar view to the script"
+
+# You can add missing files into the same commit without changing the message
+git commit --amend --no-edit
+
+# Push changes to master (link current repo as default)
+git push -u origin CHG0122705-Free_Form
+
+# Push changes to master
+git push origin CHG0122705b-Free_Form
+
+# Fetch changes, but not change any of the working directory files
+git fetch
+
+# Fetch and merge changes on the remote to the working directory
+git pull
+
+# If you already pushed the changes but want to include more in the same commit
+# First point upstream to the branch, update the repo in your local and finally push the changes to the remote
+git branch --set-upstream-to=origin/CHG9999999-Inv_Adj_And_Traffic_Recon CHG9999999-Inv_Adj_And_Traffic_Recon
+git pull
+git push origin CHG9999999-Inv_Adj_And_Traffic_Recon
+
+# Remove local branch
+git branch -d CHG0122705-Free_Form
+
+# *****************************************************************************************
+# Adding 2 accounts in the same computer (Git and Bitbucket)
+# *****************************************************************************************
+vim ~/.ssh/config
+
+# Add identities
+# Bitbucket (default)
+#  Host bb
+#  HostName foxrepo.praecipio.com
+#  User carlos.morlan@fox.com
+#  IdentityFile ~/.ssh/id_rsa
+
+# Github (secondary)
+#  Host gh
+#  HostName github.com
+#  User kmoso@yahoo.com
+#  IdentityFile ~/.ssh/id_rsa_Kmoso
+
+cat ~/.ssh/config
+
+# Adding identities to the SSH agent
+ssh-add ~/.ssh/id_rsa
+ssh-add ~/.ssh/id_rsa_Kmoso
+
+# Verify that identities have been added
+ssh-add -l
+
