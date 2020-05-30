@@ -1,0 +1,15 @@
+{
+    "app": {
+        "delimiter": "\t",
+        "sources": {
+            "metroscubicos" : {
+                "ori_url": "https://listado.metroscubicos.com/insurgentes-mixcoac#D[A:insurgentes-mixcoac]",
+                "old_url": "https://inmuebles.metroscubicos.com/casas/venta/distrito-federal/coyoacan/del-carmen/#origin=search&as_word=true"
+            },
+            "inmuebles24": {
+                "ori_url": "https://www.inmuebles24.com/departamentos-en-venta-en-del-carmen.html",
+                "old_url": "https://www.inmuebles24.com/q-santa-fe.html"
+            }
+        }
+    }
+ }

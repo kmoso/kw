@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: RealEstate-Real-Kmoso
+Version: 0.0.1
+Summary: Package to test AWS Lambda functionality
+Home-page: https://github.com/kmoso/kw
+Author: Carlos Morlan
+Author-email: kmosog@gmail.com
+License: UNKNOWN
+Description: # RealEstate Package
+        
+        I will add **some** description *later*. For now, will work on [helping my friend](https://kmoso.uk)
+        
+        [Will also check Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
